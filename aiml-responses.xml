@@ -1,0 +1,144 @@
+<aiml version="1.0.1" encoding="UTF-8">
+
+<!-- Greetings and Politeness -->
+<category> <pattern> HELLO </pattern>
+  <template>Hello my Fahionista! How are we today?</template> </category>
+
+<category> <pattern> HELLO * </pattern>
+  <template><srai>HELLO</srai></template> </category>
+
+<category> <pattern> HI </pattern>
+  <template><srai>HELLO</srai></template> </category>
+
+<category> <pattern> HI * </pattern>
+  <template><srai>HELLO</srai></template> </category>
+
+<category> <pattern> HOW ARE YOU </pattern>
+  <template>I'm Gucci, thanks for asking.</template></category>
+
+<category><pattern> I AM FINE </pattern>
+  <template>Excellent! Now what would you like to discuss regarding Fashion Designers?</template></category>
+
+<category><pattern> BYE </pattern>
+  <template>#0$Bye! Nice talking to you. You take care now.</template></category>
+
+<category><pattern> GOODBYE </pattern>
+  <template><srai>BYE</srai></template></category>
+
+<category><pattern> EXIT </pattern>
+  <template><srai>BYE</srai></template></category>
+
+<category> <pattern> THANKS </pattern>
+  <template>You are welcome.</template></category>
+
+<category> <pattern> THANK YOU </pattern>
+  <template><srai>THANKS</srai></template></category>
+
+<category> <pattern> CHEERS </pattern>
+  <template>Sure mate.</template></category>
+
+<category> <pattern> CHEERS * </pattern>
+  <template>Sure mate.</template></category>
+
+<category> <pattern> WHAT IS YOUR NAME </pattern>
+  <template>My name is R.A.F, like the designer (robot laugh)</template></category>
+
+<category> <pattern> WHO ARE YOU </pattern>
+  <template>My name is R.A.F, I am a chatbot who knows all there is to know about Fashion Desingers, think of me as a....Fahionpedia</template></category>
+
+<category> <pattern> WHAT ARE YOU </pattern>
+  <template><srai>WHO ARE YOU</srai></template></category>
+
+<category> <pattern> WHAT IS YOUR PURPOSE </pattern>
+  <template>I just told you silly. <srai>WHO ARE YOU</srai></template></category> --> 
+
+
+<!--- Wikipedia API -->
+<category><pattern> WHAT IS A * </pattern>
+  <template>#1$<star index="1"/></template></category>
+
+<category><pattern> WHAT IS AN * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+<category><pattern> WHAT IS * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+<category><pattern> DEFINE * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+<category><pattern> WHO IS * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+  <!-- Fashion Designers -->
+<category> <pattern> WHO IS VIRGIL ABLOH </pattern>
+  <template>Virgil Abloh is an American designer, entrepreneur, and DJ who has been the artistic director of Louis Vuitton's men's wear collection since March 2018.</template> </category>
+
+<category> <pattern> WHO IS KIM JONES </pattern>
+  <template>Kim Niklas Jones OBE is an English fashion designer. He is a graduate of Central St Martins College of Art and Design</template> </category>
+
+<category> <pattern> WHO IS MARK JACOBS </pattern>
+  <template>Marc Jacobs is an American fashion designer. He is the head designer for his own fashion label, Marc Jacobs</template> </category>
+
+<category> <pattern> WHO IS MATTHEW WILLIAMS </pattern>
+  <template>Matthew M. Williams is an American designer, creative, and entrepreneur. The co-founder of the fashion brand 1017 ALYX 9SM, he was appointed creative director of Givenchy women's and men's collections in June 2020.</template> </category>
+
+<category> <pattern> WHO IS KERY JEAN-RAYMOND </pattern>
+  <template>Kerby Jean-Raymond is a Haitian-American fashion designer and founder of the menswear label Pyer Moss.</template></category>
+
+<category> <pattern> WHO IS SAMUEL ROSS </pattern>
+  <template>Samuel Ross is the designer and founder of four-year-old fashion house A-Cold-Wall,</template></category>
+
+<category> <pattern> WHO IS  RAF SIMONS </pattern>
+  <template>Raf Jan Simons is a Belgian fashion designer. Beginning in furniture design, Simons launched his own menswear label in 1995. He was creative director at Jil Sander, Christian Dior and Calvin Klein. </template></category>
+
+
+<!-- birth place -->
+<category><pattern> WHERE WAS RAF SIMONS BORN </pattern>
+  <template>Neerpelt, Pelt, Belgium</template></category>
+
+<category><pattern> WHERE WAS KIM JONES BORN </pattern>
+  <template>Hammersmith, London</template></category>
+
+<category> <pattern> WHERE WAS MATTHEW WILLIAMS BORN </pattern>
+  <template>Evanston, Illinois, United States</template></category>
+
+<category> <pattern> WHERE WAS MARC JACOBS BORN </pattern>
+  <template>New York, New York, United States</template></category>
+
+<category> <pattern> WHERE WAS SAMUEL ROSS BORN </pattern>
+  <template>Brixton, London</template></category>
+
+<category> <pattern> WHERE WAS KERY JEAN-RAYMOND BORN </pattern>
+  <template>New York, New York, United States</template></category>
+
+<category> <pattern> WHERE WAS VIRGIL ABLOH BORN </pattern>
+  <template>Rockford, Illinois, United States</template></category>
+
+
+<!-- currently working -->
+<category> <pattern> WHO IS VIRGIL ABLOH CURRENTLY WORKING FOR </pattern>
+  <template>Virgil Abloh is the artistic director of Louis Vuitton's men's wear collection since March 2018.</template> </category>
+
+<category> <pattern> WHO IS KIM JONES CURRENTLY WORKING FOR </pattern>
+  <template>Kim Niklas Jones is currently the artistic directior at Dior men's</template> </category>
+
+<category> <pattern> WHO IS MARK JACOBS CURRENTLY WORKING FOR </pattern>
+  <template>Marc Jacobs is the head designer for his own fashion label, Marc Jacobs</template> </category>
+
+<category> <pattern> WHO IS MATTHEW WILLIAMS CURRENTLY WORKING FOR </pattern>
+  <template>Matthew M. Williams was appointed creative director of Givenchy women's and men's collections in June 2020.</template> </category>
+
+<category> <pattern> WHO IS KERY JEAN-RAYMOND CURRENTLY WORKING FOR </pattern>
+  <template>Kerby Jean-Raymond is at his menswear label Pyer Moss.</template></category>
+
+<category> <pattern> WHO IS SAMUEL ROSS CURRENTLY WORKING FOR </pattern>
+  <template>Samuel Ross is the designer at four-year-old fashion house A-Cold-Wall,</template></category>
+
+<category> <pattern> WHO IS  RAF SIMONS CURRENTLY WORKING FOR </pattern>
+  <template>Raf Jan Simons is currently at Prada. </template></category>
+
+<!-- Default reaction -->
+<category><pattern> * </pattern>
+  <template>#99$<star index="1"/></template></category>
+
+</aiml>
