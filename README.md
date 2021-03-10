@@ -3,7 +3,7 @@
 ![Github License](https://img.shields.io/badge/license-MIT-green)
 
 
-![example convosation](https://mdn.mozillademos.org/files/10529/inspector.png)
+![example convosation](Images/Convo%20log%20for%20chatbot%20Readme.png)
 
 #### AI Chatbot that uses NLP, Inference engine and Computer Vision to provide and learn information about the topic of fashion.
 
