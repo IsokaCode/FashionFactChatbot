@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 David Isoka N0764763 chatbot
@@ -16,9 +16,12 @@ import io
 import random
 import string
 import warnings
-
-
 import aiml # Initialise AIML agent
+from PIL import Image
+import tensorflow as tf
+
+# tensorflow keras model
+model = tf.keras.models.load_model("/mnt/c/dev/uni/ai/fashion_CNN_model.h5")
 
 # Create a Kernel object. No string encoding (all I/O is unicode)
 kern = aiml.Kernel()
@@ -28,7 +31,7 @@ kern.setTextEncoding(None)
 kern.bootstrap(learnFiles="aiml-responses.xml")
 
 #Opening and reading Question and Answer Text file
-file = open("fashionQA.txt", "r")
+file = open("/mnt/c/dev/uni/ai/fashionQA.txt", "r")
 raw = file.read()
 raw = raw.lower() # converts to lowercase
 #nltk.download('punkt') #for first time running
@@ -71,7 +74,33 @@ def response(user_input):
     else:
         chatbot_response = chatbot_response + tokens_sentence[idx]
         return(chatbot_response)
-  
+
+# preprocessing
+class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
+              'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+
+def image_classifier(userInput):
+
+    # preprocessing piplining data similar to how the model was trained
+    DATA_DIR = "/mnt/c/dev/uni/ai/my_clothing_dataset/"
+    IMG_SIZE = 28
+    FILE_END = ".png"
+    img_path = DATA_DIR + userInput + FILE_END # for absolute path
+   
+    img = tf.keras.preprocessing.image.load_img(img_path, color_mode="grayscale", target_size=(IMG_SIZE, IMG_SIZE))
+    img_array = tf.keras.preprocessing.image.img_to_array(img)
+    
+    img_array = tf.expand_dims(img_array, 0) 
+    
+    prediction = model.predict(img_array)
+
+    score = tf.nn.softmax(prediction[0])
+ 
+    return ("This item of clothing is likely a {}  and i am {:.2f} percent confident."
+    .format(class_names[np.argmax(prediction[0])], 100 * np.max(score)))
+    
+############################################################
+
 flag=True
 while(flag==True):
     user_input = input(">Human: ")
@@ -93,7 +122,7 @@ while(flag==True):
 
 # Welcome user
 #######################################################
-print("Hi there my name is R.A.F, I am a chatbot that knows everything there is to know about fashion designers, go ahead, test my knowledge!")
+print("Hi there my name is R.A.F, I am a chatbot that knows everything there is to know about fashion designers, i can also identify clothing items so go ahead, test my knowledge!")
 #######################################################
 # Main loop
 #######################################################
@@ -122,5 +151,12 @@ while True:
                 print(wSummary)
             except:
                 print("Sorry, I do not know that. Be more specific!")
+        elif cmd == 2:
+            try:
+                predict = image_classifier(params[1])
+                print(predict)
+            except:
+                print("Sorry, I do not recognize that brand. Please be more specific!")
+
     else:
         print(answer)

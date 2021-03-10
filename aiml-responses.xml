@@ -69,6 +69,13 @@
 <category><pattern> WHO IS * </pattern>
   <template><srai>WHAT IS A <star/></srai></template></category>
 
+<!--- Image-Classification -->
+<category><pattern> WHAT CATEGORY OF CLOTHING IS * </pattern>
+  <template>#2$<star index="1"/></template></category>
+
+<category><pattern> WHAT ITEM OF CLOTHING IS * </pattern>
+  <template><srai>WHAT CATEGORY OF CLOTHING IS <star/></srai></template></category>
+
   <!-- Fashion Designers -->
 <category> <pattern> WHO IS VIRGIL ABLOH </pattern>
   <template>Virgil Abloh is an American designer, entrepreneur, and DJ who has been the artistic director of Louis Vuitton's men's wear collection since March 2018.</template> </category>
